@@ -64,13 +64,13 @@ function curtain() {
         footer.style.display = "block";
         main.style.display = "block";
         header.style.display = "block";
-    }, 1000);
+    }, 2800);
     setTimeout(() => {
         footer.style.opacity = "100";
         main.style.opacity = "100";
         header.style.opacity = "100";
         curtain.style.display = "none";
-    }, 2000);
+    }, 3000);
     curtain.style.top = "-100%";
 
     
@@ -80,6 +80,9 @@ function curtain() {
 let toggle = true;
 
 function menu() {
+    const main = document.querySelector("main");
+    const footer = document.querySelector("footer");
+
     const menu = document.querySelector("nav");
     const header = document.querySelector("header");
     const question = document.querySelector(".que");
@@ -91,17 +94,19 @@ function menu() {
         menu.style.position = "absolute";
         menu.style.top = "0%";
         menu.style.zIndex = "1000";
-        menu.style.width = "20vw";
+        menu.style.width = "100%";
         menu.style.height = "100vh";
+
+        footer.style.opacity = "0";
+        main.style.opacity = "0";
 
         question.style.background = "rgba(0,0,0,0)";
         options.style.background = "rgba(0,0,0,0)";
-
         setTimeout(() => {
-            menu.style.background = "rgba(0,0,0,0.5)";
             menuContent.style.opacity = "100";
             menuContent.style.zIndex = "1000";
         }, 1000);
+        menu.style.background = "rgba(0,0,0,0.5)";
         return toggle = false;
     } else {
         menu.style.position = "none";
@@ -117,6 +122,10 @@ function menu() {
             question.style.background = "rgba(0,0,0,0.2)";
             options.style.background = "rgba(0,0,0,0.2)";
         }, 1000);
+        setTimeout(() => {
+            footer.style.opacity = "1";
+            main.style.opacity = "1";
+        }, 1500);
 
         return toggle = true;
     }

@@ -24,13 +24,14 @@ function getNewQuestion() {
     // Set the question on webpage using innerHTML
     queText.innerHTML = currentQue.q;
     // Set respective theme bubble
-    bubble.style.opacity = "0";
+    bubbble.style.opacity = "0";
+
     setTimeout(() => {
         bubbble.setAttribute("src", currentQue.theme);
-    }, 300);
+    }, 200);
     setTimeout(() => {
-        bubble.style.opacity = "30%";
-    }, 1000);
+        bubbble.style.opacity = "30%";
+    }, 1500);
     // index of current question, position in availableQue array
     const indexSlice = availableQue.indexOf(questionIndex);
     // slice out the asked question to avoid repetition
@@ -92,26 +93,26 @@ function next() {
     nextCount++;
     queText.style.opacity = "0";
     setTimeout(() => {
-    queText.style.opacity = "100";
-        
-    if (questionCounter === 5) {
-        menu();
-        queText.style.opacity = "0";
-        button.style.opacity = "0";
-        setTimeout(() => {
-            queText.innerHTML = "You've Finished The Game!";
-            queText.style.opacity = "100";
-            optContainer.innerHTML = "";
-        }, 1000);
-        setTimeout(() => {
-            button.style.opacity = "100";
-        }, 2000);
-        button.innerHTML = "Restart";
-        button.removeAttribute("onclick", "next()");
-        button.setAttribute("onclick", "reload()");
-    } else {
-        getNewQuestion();
-    } 
+        queText.style.opacity = "100";
+
+        if (questionCounter === 5) {
+            menu();
+            queText.style.opacity = "0";
+            button.style.opacity = "0";
+            setTimeout(() => {
+                queText.innerHTML = "You've Finished The Game!";
+                queText.style.opacity = "100";
+                optContainer.innerHTML = "";
+            }, 1000);
+            setTimeout(() => {
+                button.style.opacity = "100";
+            }, 2000);
+            button.innerHTML = "Restart";
+            button.removeAttribute("onclick", "next()");
+            button.setAttribute("onclick", "reload()");
+        } else {
+            getNewQuestion();
+        }
     }, 1000);
 
 }
