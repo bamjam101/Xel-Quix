@@ -10,12 +10,29 @@ const queText = document.querySelector(".question");
 const scored = document.querySelector(".score");
 const button = document.querySelector("button");
 const bubbble = document.querySelector("#bubble");
+const learnBtn = document.querySelector('.learn-btn');
+
+//Learn-box variable 
+const learnTitle = document.querySelector('.learn-title');
+const learnContent = document.querySelector('.learn-content');
+
+
+function setQuestion() {
+    const totalQue = quiz.length;
+    for (let i = 0; i < totalQue; i++) {
+        availableQue.push(quiz[i]);
+    }
+}
 
 function getNewQuestion() {
     const questionIndex = availableQue[Math.floor(Math.random() * availableQue.length)]
     currentQue = questionIndex;
     // Set the question on webpage using innerHTML
     queText.innerHTML = currentQue.q;
+
+    //learn-box content
+    // learnTitle.innerHtml = currentQue.title;
+    learnContent.innerHTML = currentQue.learn;
     // Set respective theme bubble
     bubbble.style.opacity = "0";
 
@@ -54,20 +71,12 @@ function getNewQuestion() {
     questionCounter++;
 }
 
-function setQuestion() {
-    const totalQue = quiz.length;
-    for (let i = 0; i < totalQue; i++) {
-        availableQue.push(quiz[i]);
-    }
-}
-
 function getResult(element, ans) {
     const optionChose = element.id;
     if (optionChose == ans) {
         // styling green, score++, or 
         element.classList.add("correct");
         score++;
-        scored.innerHTML = score + " out of 5";
     } else {
         // style red
         element.classList.add("wrong");
@@ -96,13 +105,18 @@ function next() {
         queText.style.opacity = "100";
 
         if (questionCounter === 5) {
-            menu();
             queText.style.opacity = "0";
             button.style.opacity = "0";
+            learnBtn.style.opacity = '0';
+            optContainer.style.background = 'none';
             setTimeout(() => {
                 queText.innerHTML = "You've Finished The Game!";
                 queText.style.opacity = "100";
                 optContainer.innerHTML = "";
+                learnBtn.style.display = 'none';
+            }, 500);
+            setTimeout(() => {
+                optContainer.innerHTML = 'Scored ' + score + ' of 5';
             }, 1000);
             setTimeout(() => {
                 button.style.opacity = "100";

@@ -15,25 +15,35 @@
     <section>
         <h1>Dive Into Knowledge.</h1>
         <img src="img/brain.png" class="theme">
+        <!-- <div class="choose-quiz">
+                <%= quizChoice %>
+        </div> -->
         <a onclick="curtain()">Begin</a>
     </section>
+
     <header>
         <nav>
-            <img onclick="menu()" src="img/menu.png" alt="Menu">
             <h2>Quimzz</h2>
-            <div class="menuContent">
-                <label for="score">SCORE</label>
-                <p class="score"></p>
-                <a href="#">LEARN</a>
-            </div>
+            <a class='contact-link' href="/contact">
+                <p>Contact@</p>
+            </a>
         </nav>
     </header>
 
     <main>
         <img id="bubble">
-
+        
         <div class="que">
             <p class="question"></p>
+            <div class="learn-box">
+                <h3 class="learn-title"></h3>
+                <p class="learn-content"></p>
+            </div>
+            <a onclick='learnSection()'>
+                <!-- <p class='learn-btn'>LEARN&#63;</p> -->
+                <img src="img/questionMark.png" alt="More" class="learn-btn">
+                <img class="crossBtn" src="img/cross.png" alt='cross'>
+            </a>
         </div>
         <div class="options">
         </div>

@@ -14,6 +14,7 @@ mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
         console.log(err);
     })
 
+app.use(express.json());
 
 //setting the view engine to use ejs templates
 app.set('view engine', 'ejs');
@@ -26,7 +27,7 @@ app.use(express.static('public'));
 
 //rendering view template home file for event call '/'
 app.get('/', (req, res)=>{
-    res.render('index', {title:"Home"});
+    res.render('index', {title:"Home", quizChoice: 'Some choices of quiz in form of array'});
 })
 
 //rendering view template about.ejs file for event call '/about'
