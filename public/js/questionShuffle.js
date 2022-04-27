@@ -16,7 +16,77 @@ const learnBtn = document.querySelector('.learn-btn');
 const learnTitle = document.querySelector('.learn-title');
 const learnContent = document.querySelector('.learn-content');
 
+//curtain and learn toggle functions
 
+function curtain() {
+    const curtain = document.querySelector("section");
+    const header = document.querySelector("header");
+    const main = document.querySelector("main");
+    const footer = document.querySelector("footer");
+    setTimeout(() => {
+        footer.style.display = "block";
+        main.style.display = "block";
+        header.style.display = "block";
+    }, 2800);
+    setTimeout(() => {
+        footer.style.opacity = "100";
+        main.style.opacity = "100";
+        header.style.opacity = "100";
+        curtain.style.display = "none";
+    }, 3000);
+    curtain.style.top = "-100%";
+    setQuestion();
+    getNewQuestion();
+}
+
+let learnToggle = true;
+
+function learnSection() {
+    const queBox = document.querySelector('.que');
+    const question = document.querySelector(".question");
+    const options = document.querySelector(".options");
+    const learnBox = document.querySelector(".learn-box");
+
+    const learnBtn = document.querySelector('.learn-btn');
+    const crossBtn = document.querySelector('.crossBtn');
+    const nextBtn = document.querySelector('button');
+
+    if (learnToggle == true) {
+        question.style.opacity = '0';
+        options.style.opacity = '0';
+
+        queBox.style.height = '60vh';
+        nextBtn.style.opacity = '0';
+        crossBtn.style.display= 'block';
+        learnBox.style.display = 'block';
+        setTimeout(() => {
+            learnBtn.style.display = 'none';
+            options.style.display = 'none';
+            learnBox.style.opacity = '100';
+            crossBtn.style.opacity = '100';
+        }, 500);
+        return learnToggle = false;
+    } else {
+        options.style.display = 'block';
+
+        question.style.opacity = '1';
+        options.style.opacity = '1';
+
+        queBox.style.height = '17.6vh';
+
+        learnBox.style.opacity = '0';
+        learnBtn.style.display = 'block';
+        crossBtn.style.opacity = '0';
+        nextBtn.style.opacity = '1';
+        setTimeout(() => {
+            crossBtn.style.display= 'none';
+            learnBox.style.display = 'none';
+        }, 1000);
+        return learnToggle = true;
+    }
+}
+
+//quiz logic functions
 function setQuestion() {
     const totalQue = quiz.length;
     for (let i = 0; i < totalQue; i++) {
@@ -135,7 +205,7 @@ function reload() {
     window.location.reload();
 }
 
-window.onload = function () {
-    setQuestion();
-    getNewQuestion();
-}
+// window.onload = function () {
+//     setQuestion();
+//     getNewQuestion();
+// }
