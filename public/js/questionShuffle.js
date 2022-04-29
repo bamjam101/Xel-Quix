@@ -9,6 +9,7 @@ const optContainer = document.querySelector(".options");
 const queText = document.querySelector(".question");
 const scored = document.querySelector(".score");
 const button = document.querySelector("button");
+const buttonRedirect = document.querySelector(".redirect-home");
 const bubbble = document.querySelector("#bubble");
 const learnBtn = document.querySelector('.learn-btn');
 
@@ -175,23 +176,27 @@ function next() {
         queText.style.opacity = "100";
 
         if (questionCounter === 5) {
+            bubbble.style.opacity = '0'
             queText.style.opacity = "0";
             button.style.opacity = "0";
             learnBtn.style.opacity = '0';
             optContainer.style.background = 'none';
             setTimeout(() => {
+                buttonRedirect.style.display = 'block';
                 queText.innerHTML = "You've Finished The Game!";
                 queText.style.opacity = "100";
                 optContainer.innerHTML = "";
                 learnBtn.style.display = 'none';
+                button.innerHTML = "Start Again!";
             }, 500);
             setTimeout(() => {
+                buttonRedirect.style.opacity = '100';
                 optContainer.innerHTML = 'Scored ' + score + ' of 5';
+                bubbble.style.display = 'none';
             }, 1000);
             setTimeout(() => {
                 button.style.opacity = "100";
             }, 2000);
-            button.innerHTML = "Restart";
             button.removeAttribute("onclick", "next()");
             button.setAttribute("onclick", "reload()");
         } else {

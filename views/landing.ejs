@@ -4,23 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/landing.css">
     <title>Quimzz | <%= title %></title>
 </head>
 <body>
-    <form action="/" method="POST">
-        <label for="random">Random</label>
-        <input type="radio" id='random' name="quiz" value='6266e238a44dbbafa302c2a4'>
+    
+    <section class="container">
+        <header>
+            <nav>
+                <h2>Quimzz</h2>
+            </nav>
+        </header>
+        <div class="categories">
+            <div class="choose">Choose a category</div>
+            <form action="/" method="POST">
+                <input type="radio" class="hidebox" id='random' name="quiz" value='6269a8e7fab5eacf2caedae6' required>
+                <label for="random" class="label-radio">
+                    <div class="display-box">
+                        <div class="content">Random</div>
+                    </div>
+                </label>
 
-        <label for="science">Science</label>
-        <input type="radio" id='science' name="quiz" value='62684e210511dd75b01b8905'>
+                <input type="radio" class="hidebox" id='Environment' name="quiz" value='62699cecfab5eacf2caedae5' required>
+                <label for="Environment" class="label-radio">
+                    <div class="display-box">
+                        <div class="content">Environment</div>
+                    </div>
+                </label>
 
-        <label for="tech">Technology</label>
-        <input type="radio" id='tech' name="quiz" value='6266e238a44dbbafa302c2a4'>
+                <input type="radio" class="hidebox" id='Science' name="quiz" value='626bd66b47c59ebc40a039b5' required>
+                <label for="Science" class="label-radio">
+                    <div class="display-box">
+                        <div class="content">Science</div>
+                    </div>
+                </label>
 
-        <label for="nature">Nature</label>
-        <input type="radio" id='nature' name="quiz" value='6266e238a44dbbafa302c2a4'>
-
-        <button type='submit'>Select Quiz</button>
-    </form>
+                <input type="radio" class="hidebox" id='Sports' name="quiz" value='626bcf0747c59ebc40a039b4' required>
+                <label for="Sports" class="label-radio">
+                    <div class="display-box">
+                        <div class="content">Sports</div>
+                    </div>
+                </label>
+                <div class="submit">
+                    <button type='submit' class="btn">Select Quiz</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
